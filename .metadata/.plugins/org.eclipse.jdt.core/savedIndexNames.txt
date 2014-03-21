@@ -1,0 +1,9 @@
+INDEX VERSION 1.126+/Users/cbreathnach/Dev/Github/MindCoder/.metadata/.plugins/org.eclipse.jdt.core
+1610628317.index
+461555874.index
+2752369608.index
+1088399913.index
+553473118.index
+624059780.index
+3650165293.index
+486040198.index

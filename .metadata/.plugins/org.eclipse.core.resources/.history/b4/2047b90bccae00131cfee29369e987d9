@@ -1,0 +1,26 @@
+package com.example.antlrtest;
+
+import java.util.ArrayList;
+
+public class BluetoothManager {
+	public static ArrayList<String> codeToSend;
+
+	public BluetoothManager(){
+		codeToSend = new ArrayList();
+		
+	}
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static void addToArray(String arg){
+		codeToSend.add(arg);
+		System.out.println(arg);
+		
+	}
+
+}

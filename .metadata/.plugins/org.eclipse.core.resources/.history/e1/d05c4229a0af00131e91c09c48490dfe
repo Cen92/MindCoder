@@ -1,0 +1,43 @@
+package com.example.antlrtest;
+
+import java.util.ArrayList;
+
+import android.bluetooth.BluetoothAdapter;
+import android.widget.ListView;
+
+import com.example.antlrtest.ListViewAndroidExample.ConnectThread;
+import com.example.antlrtest.ListViewAndroidExample.ConnectedThread;
+
+public class BluetoothManager {
+	BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+	ListView listView ;
+	private ArrayList<String> pdArrayList;
+	private ConnectThread connectThread;
+	private ConnectedThread connectedThread;
+	public ArrayList<String> codeToSend;
+	private static BluetoothManager instance;
+	private BluetoothManager(){ //private for singleton
+		codeToSend = new ArrayList<String>();
+	}
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	}
+	public static BluetoothManager getInstance() { //quick and dirty way to instanciate var. 
+	    if (instance == null) {
+	        instance = new BluetoothManager();
+	    }
+	    return instance;
+	}
+	
+	public  void addToArray(String arg){
+		codeToSend.add(arg);	
+		System.out.println("Added to array: "+ arg);
+
+		System.out.println(codeToSend);
+	}
+
+}
