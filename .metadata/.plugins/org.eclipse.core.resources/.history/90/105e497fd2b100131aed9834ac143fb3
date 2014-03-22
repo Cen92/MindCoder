@@ -7,16 +7,16 @@ import com.example.antlrtest.BluetoothManager;
 import main.tl.TLValue;
 import main.tl.tree.TLNode;
 
-public class MoveBackwardNode implements TLNode {
+public class ShootNode implements TLNode {
 
   private TLNode expression;
   private PrintStream out;
 
-  public MoveBackwardNode(TLNode e) {
+  public ShootNode(TLNode e) {
     this(e, System.out);
   }
 
-  public MoveBackwardNode(TLNode e, PrintStream o) {
+  public ShootNode(TLNode e, PrintStream o) {
     expression = e;
     out = o;
   }
@@ -25,10 +25,9 @@ public class MoveBackwardNode implements TLNode {
   public TLValue evaluate() {
     
     TLValue value = expression.evaluate();
-    out.println("0x0c 0x00  0x80  0x04  0x02  0x9C  0x07  0x00  0x00  0x20  0x00  0x00  0x02  0xD0" + value);
+    out.println("0x0c 0x00  0x80  0x04  0x00  0x64  0x05  0x01  0x00  0x20  0x00  0x00  0x01  0x68" + value);
     BluetoothManager instance = BluetoothManager.getInstance();
-    byte [] moveBackward = {0x0c,0x00,  (byte)0x80,  0x04,  0x02,  (byte)0x9C,  0x07,  0x00,  0x00,  0x20,  0x00,  0x00,  0x02,  (byte)0xD0};
-
+    instance.addToArray("0x0c 0x00  0x80  0x04  0x00  0x64  0x05  0x01  0x00  0x20  0x00  0x00  0x01  0x68");
     return TLValue.VOID;
   }
 }
