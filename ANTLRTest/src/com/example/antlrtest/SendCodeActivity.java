@@ -54,10 +54,14 @@ public class SendCodeActivity extends Activity {
 		Button moveButton = (Button) findViewById(R.id.sendCode_button);
 		moveButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-            	System.out.println(bm.codeToSend);
-            	//byte [] moveForward = {0x0c, 0x00, (byte) 0x80, 0x04, (byte) 0xFF, 0x64, 0x07, 0x00, 0x00, 0x20, 0x00, 0x00, 0x00, 0x00};
-               // bm.codeToSend
-            	//write(moveForward);
+            	byte [] command = bm.codeToSend.get(0);
+            	System.out.println(command);
+
+            	write(command);
+//            	byte [] command2 = bm.codeToSend.get(1);
+//            	write(command);
+            	//bm.codeToSend.remove(0);
+            	
             }
         });
 		
