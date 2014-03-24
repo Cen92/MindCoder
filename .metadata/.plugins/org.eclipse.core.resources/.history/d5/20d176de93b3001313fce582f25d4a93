@@ -42,7 +42,7 @@ public class MoveBackwardNode implements TLNode {
   	buffer[11] =2;
   	buffer[12] =0;
   	buffer[13] =0;
-    instance.addToArray(buffer);
+    instance.addToArray(moveBackward);
     return TLValue.VOID;
   }
 }

@@ -54,7 +54,12 @@ public class SendCodeActivity extends Activity {
 		Button moveButton = (Button) findViewById(R.id.sendCode_button);
 		moveButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-            	sendCommand(0);
+            	for(int i =0;i<bm.codeToSend.size();i++){
+            		byte [] command = bm.codeToSend.get(i);
+            		System.out.println(command);
+            		write(command);
+            	}
+            	bm.codeToSend.clear();
             }
         });
 		
@@ -85,17 +90,7 @@ public class SendCodeActivity extends Activity {
              }
         }); 
 	}
-	public void sendCommand(int i){
-		
-    		byte [] command = bm.codeToSend.get(i);
-    		System.out.println(command);
-    		write(command);
-    	if(i >= bm.codeToSend.size()){
-    		bm.codeToSend.clear();
-    	}
-		
-		
-	}
+	
 	private void write(byte[] data){
     	ConnectedThread ct;
     	ct = connectedThread;
@@ -157,13 +152,10 @@ public class SendCodeActivity extends Activity {
         public void run() {
             byte[] buffer = new byte[1024];
             int bytes;
-            int i=0;
+            
             while (true) {
                 try {
-                	i++;
-                	System.out.println("Reply recieved");
-                	bytes = mmInStream.read(buffer);
-                	sendCommand(i);
+                    bytes = mmInStream.read(buffer);
                 } catch (IOException e) {
                     e.printStackTrace();
                     break;

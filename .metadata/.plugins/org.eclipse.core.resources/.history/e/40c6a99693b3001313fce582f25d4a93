@@ -91,7 +91,7 @@ public class SendCodeActivity extends Activity {
     		System.out.println(command);
     		write(command);
     	if(i >= bm.codeToSend.size()){
-    		bm.codeToSend.clear();
+    	bm.codeToSend.clear();
     	}
 		
 		
@@ -157,13 +157,10 @@ public class SendCodeActivity extends Activity {
         public void run() {
             byte[] buffer = new byte[1024];
             int bytes;
-            int i=0;
+            
             while (true) {
                 try {
-                	i++;
-                	System.out.println("Reply recieved");
-                	bytes = mmInStream.read(buffer);
-                	sendCommand(i);
+                    bytes = mmInStream.read(buffer);
                 } catch (IOException e) {
                     e.printStackTrace();
                     break;
