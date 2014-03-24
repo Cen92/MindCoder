@@ -58,13 +58,6 @@ public class SendCodeActivity extends Activity {
             }
         });
 		
-		Button clearButton = (Button) findViewById(R.id.clear_button);
-		clearButton.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-            	bm.codeToSend.clear();
-            }
-        });
-		
 		// Define a new Adapter
         // First parameter - Context
         // Second parameter - Layout for the row

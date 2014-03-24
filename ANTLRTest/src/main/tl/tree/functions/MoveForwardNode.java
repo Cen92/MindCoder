@@ -26,13 +26,12 @@ public class MoveForwardNode implements TLNode {
   public TLValue evaluate() {
     
     TLValue value = expression.evaluate();
-    out.println("0x0c 0x00  0x80  0x04  0x02  0x64  0x07  0x00  0x00  0x20  0x00  0x00  0x01  0x68" + value);
     BluetoothManager instance = BluetoothManager.getInstance();
     byte[] buffer = new byte[14];
 	
 	buffer[0] = 0x0c;			//length lsb
 	buffer[1] = 0;						// length msb
-	buffer[2] = (byte)0x00;						// direct command (with response)
+	buffer[2] = (byte)0x80;						// direct command (with response)
 	buffer[3] = 0x04;					// set output state
 	buffer[4] = (byte) 0xFF;			// output 1 (motor B)
 	buffer[5] = (byte) 0x64;			// power

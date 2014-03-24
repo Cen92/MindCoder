@@ -3,20 +3,21 @@ package main.tl.tree.functions;
 import java.io.PrintStream;
 
 import com.example.antlrtest.BluetoothManager;
+import com.example.antlrtest.MainActivity;
 
 import main.tl.TLValue;
 import main.tl.tree.TLNode;
 
-public class TurnLeftNode implements TLNode {
+public class MoveForwardNode implements TLNode {
 
   private TLNode expression;
   private PrintStream out;
 
-  public TurnLeftNode(TLNode e) {
+  public MoveForwardNode(TLNode e) {
     this(e, System.out);
   }
 
-  public TurnLeftNode(TLNode e, PrintStream o) {
+  public MoveForwardNode(TLNode e, PrintStream o) {
     expression = e;
     out = o;
   }
@@ -25,6 +26,7 @@ public class TurnLeftNode implements TLNode {
   public TLValue evaluate() {
     
     TLValue value = expression.evaluate();
+    out.println("0x0c 0x00  0x80  0x04  0x02  0x64  0x07  0x00  0x00  0x20  0x00  0x00  0x01  0x68" + value);
     BluetoothManager instance = BluetoothManager.getInstance();
     byte[] buffer = new byte[14];
 	
@@ -32,7 +34,7 @@ public class TurnLeftNode implements TLNode {
 	buffer[1] = 0;						// length msb
 	buffer[2] = (byte)0x00;						// direct command (with response)
 	buffer[3] = 0x04;					// set output state
-	buffer[4] = (byte) 0x00;			// output 1 (motor B)
+	buffer[4] = (byte) 0xFF;			// output 1 (motor B)
 	buffer[5] = (byte) 0x64;			// power
 	buffer[6] = 0x07;					// motor on + brake between PWM
 	buffer[7] = 0;						// regulation
@@ -44,7 +46,10 @@ public class TurnLeftNode implements TLNode {
 	buffer[13] =0;
 
     instance.addToArray(buffer);
+    
     return TLValue.VOID;
+    
   }
+
 }
 
