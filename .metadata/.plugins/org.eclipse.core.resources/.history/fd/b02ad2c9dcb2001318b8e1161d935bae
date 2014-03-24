@@ -32,13 +32,13 @@ public class MoveForwardNode implements TLNode {
 	
 	buffer[0] = 0x0c;			//length lsb
 	buffer[1] = 0;						// length msb
-	buffer[2] = (byte)0x81;						// direct command (with response)
+	buffer[2] = (byte)0x80;						// direct command (with response)
 	buffer[3] = 0x04;					// set output state
 	buffer[4] = (byte) 0xFF;			// output 1 (motor B)
 	buffer[5] = (byte) 0x64;			// power
 	buffer[6] = 0x07;					// motor on + brake between PWM
 	buffer[7] = 0;						// regulation
-	buffer[8] = 0;						// turn ratio??
+	buffer[8] = 0;						// turn ration??
 	buffer[9] = 0x20;					// run state
 	buffer[10] =0;
 	buffer[11] =0;
