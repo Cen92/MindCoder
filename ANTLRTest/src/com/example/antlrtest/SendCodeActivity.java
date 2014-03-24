@@ -54,14 +54,12 @@ public class SendCodeActivity extends Activity {
 		Button moveButton = (Button) findViewById(R.id.sendCode_button);
 		moveButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-            	byte [] command = bm.codeToSend.get(0);
-            	System.out.println(command);
-
-            	write(command);
-//            	byte [] command2 = bm.codeToSend.get(1);
-//            	write(command);
-            	//bm.codeToSend.remove(0);
-            	
+            	for(int i =0;i<bm.codeToSend.size();i++){
+            		byte [] command = bm.codeToSend.get(i);
+            		System.out.println(command);
+            		write(command);
+            	}
+            	bm.codeToSend.clear();
             }
         });
 		
