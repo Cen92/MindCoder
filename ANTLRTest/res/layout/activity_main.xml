@@ -6,9 +6,11 @@
 
     <EditText
         android:id="@+id/input_text"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="moveForward(10);" />
+        android:layout_weight="2"
+        android:hint="Type some code!"
+        android:inputType="none" />
 
     <Button
         android:id="@+id/parse_button"
@@ -16,12 +18,5 @@
         android:layout_height="wrap_content"
         android:onClick="sendMessage"
         android:text="Run" />
-
-    <TextView
-        android:id="@+id/output_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.51"
-        android:text="TextView" />
 
 </LinearLayout>

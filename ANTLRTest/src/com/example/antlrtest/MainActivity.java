@@ -32,7 +32,6 @@ public class MainActivity extends Activity {
         //BluetoothManager bm = new BluetoothManager();
         		try {
         	EditText in = (EditText)findViewById(R.id.input_text);
-            TextView out = (TextView)findViewById(R.id.output_text);
             String source = in.getText().toString();
             TLValue parserOutput = object.main(source);
             

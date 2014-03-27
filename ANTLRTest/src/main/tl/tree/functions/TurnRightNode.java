@@ -25,10 +25,8 @@ public class TurnRightNode implements TLNode {
   public TLValue evaluate() {
     
     TLValue value = expression.evaluate();
-    out.println("0x0c 0x00  0x80  0x04  0x02  0x9C  0x07  0x00  0x00  0x20  0x00  0x00  0x01  0xD4");
     BluetoothManager instance = BluetoothManager.getInstance();
     byte[] buffer = new byte[14];
-	
 	buffer[0] = 0x0c;			//length lsb
 	buffer[1] = 0;						// length msb
 	buffer[2] = (byte)0x00;						// direct command (with response)
@@ -43,8 +41,7 @@ public class TurnRightNode implements TLNode {
 	buffer[11] =2;
 	buffer[12] =0;
 	buffer[13] =0;
-
-    instance.addToArray(buffer);
+	instance.addToArray(buffer);
     return TLValue.VOID;
   }
 }
