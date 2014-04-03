@@ -13,6 +13,14 @@
         android:inputType="none" />
 
     <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/button"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="2" />
+
+    <Button
         android:id="@+id/parse_button"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
