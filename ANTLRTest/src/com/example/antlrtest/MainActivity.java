@@ -5,16 +5,17 @@ import main.tl.TLValue;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class MainActivity extends Activity {
 	
 	public BluetoothManager bm;
+	public AutoCompleteTextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +36,16 @@ public class MainActivity extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+    
+    public void prettify(View view){
+        AutoCompleteTextView textView = (AutoCompleteTextView)findViewById(R.id.input_text);
+
+        String code = textView.getText().toString();
+    	PrettifyHighlighter highlighter = new PrettifyHighlighter();
+    	String highlighted = highlighter.highlight("java", code);
+    	textView.setText(Html.fromHtml(highlighted));
+    	
     }
     
     public void sendMessage(View view) {

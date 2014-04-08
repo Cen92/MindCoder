@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="dexedLibs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ANTLRTest/bin/dexedLibs/antlr-3.2-cd5341b46d6b8c0f3be003860a0ca2f3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ANTLRTest/bin/dexedLibs/android-support-v4-640706f5dda92f5f23ae74377c66f848.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
