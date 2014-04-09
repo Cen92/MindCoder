@@ -6,11 +6,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	
@@ -24,6 +26,9 @@ public class MainActivity extends Activity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line, COUNTRIES);
         AutoCompleteTextView textView = (AutoCompleteTextView)findViewById(R.id.input_text);
         textView.setAdapter(adapter);
+        
+
+        
     }
 
     private static final String[] COUNTRIES = new String[] {
@@ -37,6 +42,7 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+    
     
     public void prettify(View view){
         AutoCompleteTextView textView = (AutoCompleteTextView)findViewById(R.id.input_text);

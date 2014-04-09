@@ -7,11 +7,11 @@
     android:weightSum="1">
 
     <MultiAutoCompleteTextView
+        android:id="@+id/input_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New MultiAutoCompleteTextView"
-        android:id="@+id/input_text"
         android:layout_weight="1.00"
+        android:background="@drawable/greybg"
         android:completionThreshold="1" />
 
     <LinearLayout
